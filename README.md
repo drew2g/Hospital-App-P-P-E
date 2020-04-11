@@ -15,3 +15,9 @@ The government is able to use this tool to send aid directly to the hospitals th
 2. Be able to interface with ArcGIS software.
 3. Users shall be able to send donations directly to hospitals
     a. How can we verify that the equipment sent is properly sterilized and medical grade?
+
+## Run the app
+
+You first need to have `docker` installed on your machine.
+Run: `docker-compose up --build`
+The app is accesible at http:localhost:8001.

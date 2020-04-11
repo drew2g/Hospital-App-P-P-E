@@ -1,0 +1,42 @@
+version: "3"
+services:
+  database:
+    image: mdillon/postgis
+    container_name: inventory-db
+    environment:
+      POSTGRES_USER: ${PGUSER}
+      POSTGRES_PASSWORD: ${PGPASSWORD}
+      POSTGRES_DB: ${PGDATABASE}
+    ports:
+      - 5432:5432
+  flyway:
+    image: flyway/flyway:6.3.2
+    container_name: flyway-migration
+    environment:
+      FLYWAY_URL: jdbc:postgresql://database/${PGDATABASE}
+      FLYWAY_USER: ${PGUSER}
+      FLYWAY_PASSWORD: ${PGPASSWORD}
+    command: -connectRetries=60 migrate
+    volumes:
+      - ./db:/flyway/sql
+    depends_on:
+      - database
+  server:
+    build: .
+    container_name: hospital-inventory-tracker-server
+    environment:
+      NODE_ENV: ${NODE_ENV}
+      PGHOST: ${PGHOST}
+      PGDATABASE: ${PGDATABASE}
+      PGUSER: ${PGUSER}
+      PGPASSWORD: ${PGPASSWORD}
+      PGLOGGING: 
+      PORT: ${PORT}
+    ports:
+      - ${PORT}:${PORT}
+    volumes:
+      - node_modules:/node_modules
+    depends_on:
+      - flyway
+volumes:
+  node_modules:
