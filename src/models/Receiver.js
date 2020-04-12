@@ -1,9 +1,9 @@
 import Sequelize, { Model } from 'sequelize';
 import sequelize from '../services';
 
-class Establishment extends Model {}
+class Receiver extends Model {}
 
-export default Establishment.init(
+export default Receiver.init(
   {
     id: {
       type: Sequelize.UUIDV4,
@@ -13,23 +13,12 @@ export default Establishment.init(
       type: Sequelize.STRING,
       field: 'name',
     },
-    currentNeed: {
-      type: Sequelize.STRING,
-      field: 'current_need',
-    },
-    currentRelief: {
+    password: Sequelize.STRING,
+    establishment: Sequelize.INTEGER,
+    establishmentId: {
       type: Sequelize.INTEGER,
-      field: 'current_relief',
+      field: 'establishment_id',
     },
-    totalRelief: {
-      type: Sequelize.INTEGER,
-      field: 'total_relief',
-    },
-    lat: Sequelize.FLOAT,
-    lng: Sequelize.FLOAT,
-    city: Sequelize.STRING,
-    state: Sequelize.STRING,
-    country: Sequelize.STRING,
     created: {
       type: Sequelize.DATE,
       defaultValue: Sequelize.NOW,
@@ -42,8 +31,8 @@ export default Establishment.init(
   },
   {
     sequelize,
-    modelName: 'establishment',
-    tableName: 'establishment',
+    modelName: 'receiver',
+    tableName: 'receiver',
     timestamps: false,
   }
 );
