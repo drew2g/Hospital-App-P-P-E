@@ -37,16 +37,7 @@
     "run.env": "^1.1.0",
     "supertest": "^4.0.2"
   },
-  "jest": {
-    "testEnvironment": "node",
-    "testMatch": [
-      "**/*.test.js"
-    ],
-    "transformIgnorePatterns": [
-      "node_modules"
-    ],
-    "transform": {
-      ".js": "jest-esm-transformer"
-    }
-  }
+  "workspaces": [
+    "packages/*"
+  ]
 }

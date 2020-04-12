@@ -33,6 +33,6 @@ Here you are into the container!
 
 `psql inventory bob-zoom`
 
-## Run the test 
+## Run the backend tests 
 
-`./test.sh`
+`./packages/backend/test.sh`
