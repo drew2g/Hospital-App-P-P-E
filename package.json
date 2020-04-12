@@ -2,6 +2,7 @@
   "name": "hospitalinventorytracker",
   "version": "1.0.0",
   "description": "An app to track inventory of hospital equipment, as needed per covid19",
+  "private": true,
   "main": "index.js",
   "scripts": {
     "lint": "eslint ./src",
