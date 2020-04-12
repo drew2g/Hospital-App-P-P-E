@@ -1,0 +1,53 @@
+{
+    "name": "@hospitalinventorytracker/backend",
+    "version": "1.0.0",
+    "description": "An app to track inventory of hospital equipment, as needed per covid19",
+    "main": "index.js",
+    "scripts": {
+      "lint": "eslint ./src",
+      "test": "NODE_ENV=test run.env jest --runInBand"
+    },
+    "author": "Andrew Padilla (nyandrewdesu@live.com)",
+    "contributors": [
+      "dredtrake <dredtrake@gmail.com>" 
+    ],
+    "license": "ISC",
+    "dependencies": {
+      "body-parser": "^1.19.0",
+      "cors": "^2.8.5",
+      "debug": "^4.1.1",
+      "dotenv": "^8.2.0",
+      "express": "^4.17.1",
+      "pg": "^8.0.2",
+      "sequelize": "^5.21.6",
+      "swagger-jsdoc": "^4.0.0",
+      "swagger-ui-express": "^4.1.4",
+      "uuid": "^7.0.3"
+    },
+    "devDependencies": {
+      "eslint": "^6.8.0",
+      "eslint-config-airbnb-base": "^14.0.0",
+      "eslint-config-prettier": "^6.10.0",
+      "eslint-plugin-import": "^2.20.1",
+      "eslint-plugin-prettier": "^3.1.2",
+      "esm": "^3.2.25",
+      "jest": "^25.3.0",
+      "jest-esm-transformer": "^1.0.0",
+      "prettier": "^1.19.1",
+      "run.env": "^1.1.0",
+      "supertest": "^4.0.2"
+    },
+    "jest": {
+      "testEnvironment": "node",
+      "testMatch": [
+        "**/*.test.js"
+      ],
+      "transformIgnorePatterns": [
+        "node_modules"
+      ],
+      "transform": {
+        ".js": "jest-esm-transformer"
+      }
+    }
+  }
+  

@@ -22,7 +22,7 @@ services:
     depends_on:
       - database
   server:
-    build: .
+    build: ./packages/backend/.
     container_name: hospital-inventory-tracker-server
     environment:
       NODE_ENV: ${NODE_ENV}
