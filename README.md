@@ -32,3 +32,7 @@ The previous step should be working and the dockers running
 Here you are into the container!
 
 `psql inventory bob-zoom`
+
+## Run the test 
+
+`./test.sh`
