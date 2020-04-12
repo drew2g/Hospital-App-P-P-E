@@ -1,4 +1,4 @@
-import Establishment from '../../models';
+import { Establishment } from '../../models';
 
 /**
  * @swagger
@@ -26,8 +26,10 @@ import Establishment from '../../models';
 export default async ({ params: { id } }, res) => {
   try {
     const establishment = await Establishment.findByPk(id);
+    console.log(establishment);
     if (!establishment) {
-      return res.send({
+      console.log('establishment does not exists');
+      return res.status(404).send({
         id: 'NotFoundError',
         status: '404',
         code: 'NotFoundError',
@@ -35,8 +37,10 @@ export default async ({ params: { id } }, res) => {
         detail: `Establishment #${id} does not exists`,
       });
     }
+    console.log(establishment);
     return res.send({ establishment });
   } catch (error) {
-    return res.send({ error });
+    // to change later because it expose the db model
+    return res.status(400).send({ error });
   }
 };

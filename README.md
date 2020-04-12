@@ -21,3 +21,18 @@ The government is able to use this tool to send aid directly to the hospitals th
 You first need to have `docker` installed on your machine.
 Run: `docker-compose up --build`
 The app is accesible at http:localhost:8001.
+
+## Access the database (Postgis)
+
+The previous step should be working and the dockers running
+`docker ps` to identify the container named mdillon/postgis
+
+`docker exec -it $CONTAINER_ID_HASH bash`
+
+Here you are into the container!
+
+`psql inventory bob-zoom`
+
+## Run the test 
+
+`./test.sh`
