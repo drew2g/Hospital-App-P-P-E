@@ -1,4 +1,4 @@
-import Establishment from '../../models';
+import { Establishment } from '../../models';
 
 /**
  * @swagger

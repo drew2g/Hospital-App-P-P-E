@@ -24,4 +24,12 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 2018,
   },
+  globals: {
+    afterAll: true,
+    beforeAll: true,
+    describe: true,
+    expect: true,
+    it: true,
+    jest: true
+  },
 };

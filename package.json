@@ -4,9 +4,13 @@
   "description": "An app to track inventory of hospital equipment, as needed per covid19",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint ./src",
+    "test": "NODE_ENV=test run.env jest --runInBand"
   },
   "author": "Andrew Padilla (nyandrewdesu@live.com)",
+  "contributors": [
+    "dredtrake <dredtrake@gmail.com>"
+  ],
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -14,7 +18,6 @@
     "debug": "^4.1.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "mongoose": "^5.9.7",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "pg": "^8.0.2",
@@ -30,7 +33,22 @@
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-prettier": "^3.1.2",
     "esm": "^3.2.25",
-    "jest": "^25.1.0",
-    "prettier": "^1.19.1"
+    "jest": "^25.3.0",
+    "jest-esm-transformer": "^1.0.0",
+    "prettier": "^1.19.1",
+    "run.env": "^1.1.0",
+    "supertest": "^4.0.2"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testMatch": [
+      "**/*.test.js"
+    ],
+    "transformIgnorePatterns": [
+      "node_modules"
+    ],
+    "transform": {
+      ".js": "jest-esm-transformer"
+    }
   }
 }
