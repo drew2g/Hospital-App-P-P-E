@@ -32,6 +32,7 @@ services:
       PGPASSWORD: ${PGPASSWORD}
       PGLOGGING: 
       PORT: ${PORT}
+      DEBUG: ${DEBUG}
     ports:
       - ${PORT}:${PORT}
     volumes:
