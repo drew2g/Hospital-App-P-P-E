@@ -39,10 +39,21 @@ services:
       - node_modules:/node_modules
     depends_on:
       - flyway
+    networks:
+      - intra
   fe-server:
-    build: ./packages/frontend/.
+    build: 
+      context: ./packages/frontend/.
+      dockerfile: Dockerfile.${NODE_ENV}
     container_name: 'hospital-inventory-tracker-FE-server'
+    environment:
+      BE_PORT: ${PORT}
     ports:
       - 80:80
+      - 8080:8080
+    networks:
+      - intra
 volumes:
   node_modules:
+networks:
+  intra:
