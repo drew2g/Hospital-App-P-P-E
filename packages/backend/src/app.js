@@ -1,13 +1,8 @@
 import path from 'path';
-// import swaggerUi from 'swagger-ui-express';
 import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import routes from './routes';
-
-// const swaggerDoc = require('../swagger.json');
-
-// const port = process.env.PORT || 8001;
 
 const app = express();
 app
@@ -29,9 +24,5 @@ app.use((req, res, next) => {
   );
   next();
 });
-
-// if (process.env.NODE_ENV === 'development') {
-//   app.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
-// }
 
 export default app;

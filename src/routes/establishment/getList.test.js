@@ -4,7 +4,6 @@ import { Establishment } from '../../models';
 
 describe('get /establishment/', () => {
   beforeAll(async () => {
-    console.log([hospitals.northflight, hospitals.saintJoseph]);
     await Establishment.truncate();
     await Establishment.bulkCreate([
       hospitals.northflight,
@@ -20,47 +19,52 @@ describe('get /establishment/', () => {
       .expect('Content-Type', /json/)
       .expect(200)
       .expect(({ body }) => {
-        console.log(body);
-        // expect(body.establishments[0]).toHaveProperty('id');
-        // expect(body.establishments[0]).toHaveProperty(
-        //   'name',
-        //   hospitals.northflight.name
-        // );
-        // expect(body.establishments[0]).toHaveProperty(
-        //   'currentNeed',
-        //   hospitals.northflight.currentNeed
-        // );
-        // expect(body.establishments[0]).toHaveProperty(
-        //   'currentRelief',
-        //   hospitals.northflight.currentRelief
-        // );
-        // expect(body.establishments[0]).toHaveProperty(
-        //   'totalRelief',
-        //   hospitals.northflight.totalRelief
-        // );
-        // expect(body.establishments[0]).toHaveProperty(
-        //   'lat',
-        //   hospitals.northflight.lat
-        // );
-        // expect(body.establishments[0]).toHaveProperty(
-        //   'lng',
-        //   hospitals.northflight.lng
-        // );
-        // expect(body.establishments[0]).toHaveProperty(
-        //   'city',
-        //   hospitals.northflight.city
-        // );
-        // expect(body.establishments[0]).toHaveProperty(
-        //   'state',
-        //   hospitals.northflight.state
-        // );
-        // expect(body.establishments[0]).toHaveProperty(
-        //   'country',
-        //   hospitals.northflight.country
-        // );
-        // expect(body.establishments[0]).toHaveProperty(
-        //   'isActive',
-        //   hospitals.northflight.isActive
-        // );
+        expect(body).toHaveProperty('count', 2);
+        expect(body).toHaveProperty('establishments');
+
+        expect(body).toHaveProperty(
+          'establishments.0.id',
+          hospitals.saintJoseph.id
+        );
+        expect(body).toHaveProperty(
+          'establishments.0.name',
+          hospitals.saintJoseph.name
+        );
+        expect(body.establishments[0]).toHaveProperty(
+          'currentNeed',
+          hospitals.saintJoseph.currentNeed
+        );
+        expect(body.establishments[0]).toHaveProperty(
+          'currentRelief',
+          hospitals.saintJoseph.currentRelief
+        );
+        expect(body.establishments[0]).toHaveProperty(
+          'totalRelief',
+          hospitals.saintJoseph.totalRelief
+        );
+        expect(body.establishments[0]).toHaveProperty(
+          'lat',
+          hospitals.saintJoseph.lat
+        );
+        expect(body.establishments[0]).toHaveProperty(
+          'lng',
+          hospitals.saintJoseph.lng
+        );
+        expect(body.establishments[0]).toHaveProperty(
+          'city',
+          hospitals.saintJoseph.city
+        );
+        expect(body.establishments[0]).toHaveProperty(
+          'state',
+          hospitals.saintJoseph.state
+        );
+        expect(body.establishments[0]).toHaveProperty(
+          'country',
+          hospitals.saintJoseph.country
+        );
+        expect(body.establishments[0]).toHaveProperty(
+          'isActive',
+          hospitals.saintJoseph.isActive
+        );
       }));
 });
