@@ -8,6 +8,7 @@ describe('create /establishment/', () => {
   });
 
   afterAll(() => Promise.all([sequelize.close()]));
+
   it('should create a establishment', () =>
     request
       .post('/establishment')

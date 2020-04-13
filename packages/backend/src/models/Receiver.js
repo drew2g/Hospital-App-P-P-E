@@ -14,7 +14,7 @@ export default Receiver.init(
       field: 'name',
     },
     password: Sequelize.STRING,
-    establishment: Sequelize.INTEGER,
+    establishment: Sequelize.STRING,
     establishmentId: {
       type: Sequelize.INTEGER,
       field: 'establishment_id',

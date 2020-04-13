@@ -17,7 +17,6 @@ export default async (_, res) => {
   try {
     const establishments = await Establishment.findAll({
       attributes: [
-        'id',
         'name',
         'currentNeed',
         'totalRelief',
@@ -39,6 +38,7 @@ export default async (_, res) => {
         ['city', 'ASC'],
       ],
     });
+    console.log(establishments);
     if (!establishments) {
       return res.send({
         id: 'NotFoundError',

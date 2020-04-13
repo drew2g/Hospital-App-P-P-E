@@ -1,6 +1,47 @@
 import Sequelize, { Model } from 'sequelize';
 import sequelize from '../services';
 
+/**
+ * @swagger
+ *
+ * components:
+ *   schemas:
+ *     Establishment:
+ *       type: object
+ *       properties:
+ *         id:
+ *           type: string
+ *           format: uuid
+ *         name:
+ *           type: string
+ *         currentNeed:
+ *           type: string
+ *         currentRelief:
+ *           type: number
+ *         totalRelief:
+ *           type: number
+ *         lat:
+ *           type: number
+ *           format: float
+ *         lng:
+ *           type: number
+ *           format: float
+ *         city:
+ *           type: string
+ *         state:
+ *           type: string
+ *         country:
+ *           type: string
+ *         created:
+ *           type: string
+ *           format: date-time
+ *         updated:
+ *           type: string
+ *           format: date-time
+ *         isActive:
+ *           type: boolean
+ */
+
 class Establishment extends Model {}
 
 export default Establishment.init(

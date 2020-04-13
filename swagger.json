@@ -1,0 +1,200 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Hospital app",
+    "version": "1.0.0",
+    "description": "hospital PPE tools"
+  },
+  "paths": {
+    "/equipment/": {
+      "get": {
+        "description": "get list of equipment",
+        "responses": {
+          "200": {
+            "description": "returns the equipments"
+          }
+        }
+      }
+    },
+    "/establishment/": {
+      "post": {
+        "description": "create a establishment",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "currentNeed": {
+                    "type": "string"
+                  },
+                  "currentRelief": {
+                    "type": "number"
+                  },
+                  "totalRelief": {
+                    "type": "number"
+                  },
+                  "lat": {
+                    "type": "number",
+                    "format": "float"
+                  },
+                  "lng": {
+                    "type": "number",
+                    "format": "float"
+                  },
+                  "city": {
+                    "type": "string"
+                  },
+                  "state": {
+                    "type": "string"
+                  },
+                  "country": {
+                    "type": "string"
+                  },
+                  "isActive": {
+                    "type": "boolean"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Establishment was created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Establishment"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Establishment not found"
+          }
+        }
+      },
+      "get": {
+        "description": "get list of Establishments",
+        "responses": {
+          "200": {
+            "description": "returns the Establishments"
+          }
+        }
+      }
+    },
+    "/establishment/:id": {
+      "delete": {
+        "description": "delete a establishment",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "The establishment ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Establishment was deleted"
+          },
+          "404": {
+            "description": "Establishment not found"
+          }
+        }
+      },
+      "get": {
+        "description": "get an establishment",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "description": "The Establishment ID"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "returns the Establishment",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Establishment"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Establishment not found"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Establishment": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string"
+          },
+          "currentNeed": {
+            "type": "string"
+          },
+          "currentRelief": {
+            "type": "number"
+          },
+          "totalRelief": {
+            "type": "number"
+          },
+          "lat": {
+            "type": "number",
+            "format": "float"
+          },
+          "lng": {
+            "type": "number",
+            "format": "float"
+          },
+          "city": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "created": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updated": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "isActive": {
+            "type": "boolean"
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}
