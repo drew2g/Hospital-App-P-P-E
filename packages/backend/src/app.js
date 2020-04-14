@@ -1,12 +1,8 @@
 import path from 'path';
-import swaggerUi from 'swagger-ui-express';
 import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import routes from './routes';
-import swagger from '../swagger-init';
-
-const port = process.env.PORT || 8001;
 
 const app = express();
 app
@@ -15,9 +11,6 @@ app
   .use(bodyParser.json())
   .use(express.static(path.resolve('public')))
   .use(routes);
-
-app.use('/swagger', swaggerUi.serve);
-app.get('/swagger', swaggerUi.setup(swagger(port)));
 
 process.on('SIGINT', (sig) => {
   process.exit(sig === 130 ? 0 : sig);

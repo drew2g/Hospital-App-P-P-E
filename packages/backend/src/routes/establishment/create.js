@@ -39,6 +39,10 @@ import { Establishment } from '../../models';
  *       responses:
  *         "201":
  *           description: Establishment was created
+ *           content:
+ *             application/json:
+ *               schema:
+ *                $ref: "#/components/schemas/Establishment"
  *         "404":
  *           description: Establishment not found
  *

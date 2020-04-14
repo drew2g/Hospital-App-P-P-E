@@ -27,7 +27,7 @@ export default async ({ params: { id } }, res) => {
   try {
     const establishment = await Establishment.findByPk(id);
     if (!establishment) {
-      return res.send({
+      return res.status(404).send({
         id: 'NotFoundError',
         status: '404',
         code: 'NotFoundError',

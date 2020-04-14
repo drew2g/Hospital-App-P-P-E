@@ -20,6 +20,7 @@ export default async (_, res) => {
         'id',
         'name',
         'currentNeed',
+        'currentRelief',
         'totalRelief',
         'lat',
         'lng',
@@ -39,6 +40,7 @@ export default async (_, res) => {
         ['city', 'ASC'],
       ],
     });
+
     if (!establishments) {
       return res.send({
         id: 'NotFoundError',
