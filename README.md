@@ -20,6 +20,14 @@ The government is able to use this tool to send aid directly to the hospitals th
 
 ## Run the app
 
+### env
+
+You need an `.env` file, use `.env.dist` as a boilerplate
+`NODE_ENV` = `production` will build & webpack the FE & serve it in an NGINX container
+`NODE_ENV` = `development` will build the FE and serve it in a NODE container
+
+### docker
+
 You first need to have `docker` installed on your machine.
 Run: `docker-compose up --build`
 The app is accesible at http:localhost:8001.
