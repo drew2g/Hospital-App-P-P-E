@@ -1,3 +1,5 @@
+[![Coverage Status](https://coveralls.io/repos/github/drew2g/Hospital-App-P-P-E/badge.svg?branch=development)](https://coveralls.io/github/drew2g/Hospital-App-P-P-E?branch=development)
+
 # HAPPE - Hospital App PPE
 
 ### About this project
