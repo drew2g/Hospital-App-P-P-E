@@ -5,6 +5,7 @@ import app from '../app';
 export default supertest(app);
 
 export const randomEstablishment = (data) => ({
+  id: '45a0327c-2719-41b5-bb55-fa8ce7022036',
   name: 'Northflight EMS Base',
   currentNeed: '750 masks',
   currentRelief: 20,
@@ -30,6 +31,7 @@ export const randomReceiver = (data) => ({
 const northflight = randomEstablishment();
 
 const dorotheaCenter = randomEstablishment({
+  id: 'a05e5585-4138-404d-bbaa-ab012bb1d68b',
   name: 'Dorothea Dix Psychiatric Center',
   lat: 41.36238,
   lng: -74.430417,
@@ -39,6 +41,7 @@ const dorotheaCenter = randomEstablishment({
 });
 
 const saintJoseph = randomEstablishment({
+  id: '47432d7d-05c0-4c66-82ce-b64eac700056',
   name: 'Hôpital Paris Saint-Joseph',
   lat: 48.85254,
   lng: 2.3736,

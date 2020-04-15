@@ -21,6 +21,15 @@ services:
       - ./db:/flyway/sql
     depends_on:
       - database
+  swaggerui:
+    image: swaggerapi/swagger-ui
+    container_name: swagger-server-ui
+    ports:
+      - 7001:8080
+    environment:
+      SWAGGER_JSON: /swagger/swagger.json
+    volumes:
+      - ./swagger:/swagger
   be-server:
     build: ./packages/backend/.
     container_name: hospital-inventory-tracker-BE-server
@@ -54,6 +63,7 @@ services:
     networks:
       - intra
 volumes:
+  swagger:
   node_modules:
 networks:
   intra:

@@ -9,7 +9,7 @@ import { Establishment } from '../../models';
  *       description: get an establishment
  *       parameters:
  *       - in: path
- *         name: id   # Note the name is the same as in the path
+ *         name: id   # Note the id is the same as in the path
  *         required: true
  *         schema:
  *           type: string
@@ -18,6 +18,10 @@ import { Establishment } from '../../models';
  *       responses:
  *         "200":
  *           description: returns the Establishment
+ *           content:
+ *             application/json:
+ *               schema:
+ *                 $ref: "#/components/schemas/Establishment"
  *         "404":
  *           description: Establishment not found
  *
@@ -26,9 +30,7 @@ import { Establishment } from '../../models';
 export default async ({ params: { id } }, res) => {
   try {
     const establishment = await Establishment.findByPk(id);
-    console.log(establishment);
     if (!establishment) {
-      console.log('establishment does not exists');
       return res.status(404).send({
         id: 'NotFoundError',
         status: '404',
@@ -37,7 +39,6 @@ export default async ({ params: { id } }, res) => {
         detail: `Establishment #${id} does not exists`,
       });
     }
-    console.log(establishment);
     return res.send({ establishment });
   } catch (error) {
     // to change later because it expose the db model
