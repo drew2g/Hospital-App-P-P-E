@@ -30,9 +30,9 @@ services:
       SWAGGER_JSON: /swagger/swagger.json
     volumes:
       - ./swagger:/swagger
-  server:
+  be-server:
     build: ./packages/backend/.
-    container_name: hospital-inventory-tracker-server
+    container_name: hospital-inventory-tracker-BE-server
     environment:
       NODE_ENV: ${NODE_ENV}
       PGHOST: ${PGHOST}
@@ -48,6 +48,22 @@ services:
       - node_modules:/node_modules
     depends_on:
       - flyway
+    networks:
+      - intra
+  fe-server:
+    build: 
+      context: ./packages/frontend/.
+      dockerfile: Dockerfile.${NODE_ENV}
+    container_name: 'hospital-inventory-tracker-FE-server'
+    environment:
+      BE_PORT: ${PORT}
+    ports:
+      - 80:80
+      - 8080:8080
+    networks:
+      - intra
 volumes:
   swagger:
   node_modules:
+networks:
+  intra:
